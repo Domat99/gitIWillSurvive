@@ -43,7 +43,7 @@ import DBConnection.DBConnectionProvider;
  * @author elias
  */
 public class ControllerIWillSurvive {
-       DBConnectionProvider connectionProvider = new DBConnectionProvider();
+    DBConnectionProvider connectionProvider = new DBConnectionProvider();
 
     static Double MET = 0.0;
     static String timeSlot = "";
@@ -98,7 +98,7 @@ public class ControllerIWillSurvive {
                 user = getUserObject(test1);
                 checkEmptyDays();
                 deleteOldData();
-                changeScenes("MainHealth.fxml", 950, 1500);
+                changeScenes("MainPage.fxml", 950, 1500);
 
             }
         }
