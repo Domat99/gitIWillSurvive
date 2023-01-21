@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class GitIWillSurvive extends Application {
     
-    Image logo = new Image(GitIWillSurvive.class.getResourceAsStream("Images/Picture3.png")); 
+    Image logo = new Image(GitIWillSurvive.class.getResourceAsStream("Images/Dinosaur.png")); 
 
     public static Stage stg;
 
