@@ -43,6 +43,7 @@ import DBConnection.DBConnectionProvider;
  * @author elias
  */
 public class ControllerIWillSurvive {
+
     DBConnectionProvider connectionProvider = new DBConnectionProvider();
 
     static Double MET = 0.0;
@@ -108,19 +109,17 @@ public class ControllerIWillSurvive {
         Connection connection = connectionProvider.getConnection();
 
         User u1 = null;
-        String query = "SELECT Password, Gender, DOB, Height, Weight FROM Users WHERE UserName = \"" + userName + "\"";
+        String query = "SELECT Password, Income, Family FROM Users WHERE UserName = \"" + userName + "\"";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
 
             ResultSet resultSet = stmt.executeQuery();
 
             String password = resultSet.getString("Password");
-            String gender = resultSet.getString("Gender");
-            String DOB = resultSet.getString("DOB");
-            int height = resultSet.getInt("Height");
-            int weight = resultSet.getInt("Weight");
+            int income = resultSet.getInt("Income");
+            int family = resultSet.getInt("Family");
 
-            u1 = new User(userName, password, gender, DOB, height, weight);
+            u1 = new User(userName, password, income, family);
 
         } catch (SQLException ex) {
             System.out.println("An Error Has Occured With getUserObject Selecting: " + ex.getMessage());
@@ -185,6 +184,10 @@ public class ControllerIWillSurvive {
     @FXML
     private TextField txtFldCreateUsername;
     @FXML
+    private TextField txtFldIncome;
+    @FXML
+    private TextField txtFldFamilyMembers;
+    @FXML
     private PasswordField txtFldCreatePassword;
     @FXML
     private PasswordField txtFldConfirmPassword;
@@ -207,9 +210,6 @@ public class ControllerIWillSurvive {
     //Checks the entered values by the user when he/she tries to sign up
     private void checkValues() throws IOException, SQLException {
 
-        LocalDate date1 = LocalDate.now().minusYears(16);
-        LocalDate birthDate1 = birthDate.getValue();
-
         boolean isNum = true;
         Double doubleX = 0.0;
         try {
@@ -221,36 +221,29 @@ public class ControllerIWillSurvive {
         if ((txtFldCreateUsername.getText().trim().isEmpty())
                 || (txtFldCreatePassword.getText().trim().isEmpty())
                 || (txtFldConfirmPassword.getText().trim().isEmpty())
-                || (!(rbMale.isSelected()) && !(rbFemale.isSelected()))
-                || (birthDate.getValue() == null)
-                || (txtFldHeight.getText().trim().isEmpty())
-                || (txtFldWeight.getText().trim().isEmpty())) {
+                || (txtFldIncome.getText().trim().isEmpty())
+                || (txtFldFamilyMembers.getText().trim().isEmpty())) {
             messageLabel.setText("Please fill all the fields");
             messageLabel.setStyle("-fx-text-fill: #D05F12");//Orange
         } else if ((txtFldCreatePassword.getText().trim()).equals(txtFldConfirmPassword.getText().trim())) {
-            if (birthDate1.isBefore(date1)) {
-                if (isNum == false) {
-                    if ((txtFldCreatePassword.getText().trim().chars().count()) >= (8.00)) {
 
-                        messageLabel.setText("Success");
-                        messageLabel.setStyle("-fx-text-fill: #00B050");//Green
+            if (isNum == false) {
+                if ((txtFldCreatePassword.getText().trim().chars().count()) >= (8.00)) {
 
-                        checkUsername(txtFldCreateUsername, txtFldCreatePassword, rbMale,
-                                rbFemale, birthDate, txtFldHeight, txtFldWeight, messageLabel);
+                    messageLabel.setText("Success");
+                    messageLabel.setStyle("-fx-text-fill: #00B050");//Green
 
-                    } else {
-                        messageLabel.setText("Please use at least 8 Characters for the password");
-                        messageLabel.setStyle("-fx-text-fill: #FF0000");//Red
-                    }
+                    checkUsername(txtFldCreateUsername, txtFldCreatePassword, txtFldIncome, txtFldFamilyMembers, messageLabel);
+
                 } else {
-                    messageLabel.setText("Please include letters in the username");
-                    messageLabel.setTextFill(Color.RED);
+                    messageLabel.setText("Please use at least 8 Characters for the password");
+                    messageLabel.setStyle("-fx-text-fill: #FF0000");//Red
                 }
-
             } else {
-                messageLabel.setText("You need to be at least 16 years old to use this program");
-                messageLabel.setStyle("-fx-text-fill: #FF0000");//Red
+                messageLabel.setText("Please include letters in the username");
+                messageLabel.setTextFill(Color.RED);
             }
+
         } else if (!(txtFldCreatePassword.getText().trim()).equals(txtFldConfirmPassword.getText().trim())) {
             messageLabel.setText("Please make sure the password matches in both boxes");
             messageLabel.setStyle("-fx-text-fill: #D05F12");//Orange
@@ -315,21 +308,20 @@ public class ControllerIWillSurvive {
     }
 
     //Takes the user's info and creates an account.
-    private void save(TextField username, PasswordField password, DatePicker dp,
-            TextField height, TextField weight, Label lbl1, String st1) throws SQLException {
+    private void save(TextField username, PasswordField password,
+            TextField income, TextField familyNum, Label lbl1) throws SQLException {
         Connection connection = connectionProvider.getConnection();
-        String query = "INSERT INTO Users (UserName, Password, Gender,DOB,Height,Weight) VALUES(?,?,?,?,?,?) ";
+        String query = "INSERT INTO Users (UserName, Password, Income, Family, Saving) VALUES(?,?,?,?,?) ";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
 
             pstmt.setString(1, username.getText().toLowerCase().trim());
             pstmt.setString(2, password.getText().trim());
-            pstmt.setString(3, st1);
-            pstmt.setString(4, dp.getValue().toString());
-            pstmt.setString(5, height.getText().trim());
-            pstmt.setString(6, weight.getText().trim());
-
+            pstmt.setString(3, income.getText().trim());
+            pstmt.setString(4, familyNum.getText().trim());
+            pstmt.setString(5, "-1");
+            
             pstmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -487,11 +479,10 @@ public class ControllerIWillSurvive {
     //Checks if the username is already taken. If not, it saves the new user's
     //info using the save() function, creates a tabel in the database for the user
     //for the last 8 days and adds its name to the users table.
-    private void checkUsername(TextField username2, PasswordField password2, RadioButton rb1, RadioButton rb2,
-            DatePicker dp2, TextField height2, TextField weight2, Label lbl2) throws IOException, SQLException {
+    private void checkUsername(TextField username2, PasswordField password2, TextField income, 
+            TextField familyNum, Label lbl2) throws IOException, SQLException {
 
         Connection connection = connectionProvider.getConnection();
-        String gender = "";
 
         String query = "SELECT * FROM Users WHERE UserName = ?;";
 
@@ -512,16 +503,7 @@ public class ControllerIWillSurvive {
                 lbl2.setText("Success! Welcome to Sehtak Fitness!");
                 lbl2.setStyle("-fx-text-fill: #00B050");//Green
 
-                if (rb1.isSelected()) {
-                    gender = "male";
-                } else if (rb2.isSelected()) {
-                    gender = "female";
-                } else {
-                    lbl2.setText("ERROR, please try again or contact us");
-                    lbl2.setStyle("-fx-text-fill: #FF0000");//Red
-                }
-
-                save(username2, password2, dp2, height2, weight2, lbl2, gender);
+                save(username2, password2, income, familyNum, lbl2);
                 createUserTable(username2);
                 lastDaysInsertEmptyData(username2.getText().trim().toLowerCase(), 8);
                 changeScenes("FXMLHealth.fxml", 500, 800);
@@ -554,9 +536,9 @@ public class ControllerIWillSurvive {
         plotGraphDashboard(getGraphsData(user.getUserName(), "Oxygen_Level", today), "Oxygen_Level");
         plotSleepGraphDashboard(getSleepData(user.getUserName(), today));
         plotWaterGraphDashboard(getGraphsData(user.getUserName(), "Water", today));
-        lblHeight.setText(Integer.toString(user.getHeight()));
-        lblWeight.setText(Integer.toString(user.getWeight()));
-        lblBmi.setText(Integer.toString(calBMI(user.getHeight(), user.getWeight())));
+        lblHeight.setText(Integer.toString(user.getMonthly_income()));
+        lblWeight.setText(Integer.toString(user.getNumFamily()));
+        lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
     }
 
     @FXML
@@ -582,10 +564,10 @@ public class ControllerIWillSurvive {
 
                 stmt.executeUpdate();
 
-                user.setHeight(height);
+                user.setMonthly_income(height);
 
                 lblHeight.setText(Integer.toString(height));
-                lblBmi.setText(Integer.toString(calBMI(user.getHeight(), user.getWeight())));
+                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
                 txtFieldUpdateHeight.setText("");
 
             } catch (SQLException ex) {
@@ -620,10 +602,10 @@ public class ControllerIWillSurvive {
 
                 stmt.executeUpdate();
 
-                user.setWeight(weight);
+                user.setNumFamily(weight);
 
                 lblWeight.setText(Integer.toString(weight));
-                lblBmi.setText(Integer.toString(calBMI(user.getHeight(), user.getWeight())));
+                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
                 txtFieldUpdateWeight.setText("");
 
             } catch (SQLException ex) {
@@ -1027,7 +1009,6 @@ public class ControllerIWillSurvive {
     //Scenes in View Info
     //
     //
-    
     //
     //Steps
     //
@@ -1122,33 +1103,32 @@ public class ControllerIWillSurvive {
         plotGraphInfo("Steps");
     }
 
-    @FXML
-    void addStepsBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxSteps.getText() != "" || stepsDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("Steps", stepsDatePicker.getValue(), TBoxSteps);
-            if (isValid == true) {
-                Double distance = Double.parseDouble(TBoxSteps.getText());
-                String date = stepsDatePicker.getValue().toString();
-                int time = (int) ((distance / 4.9) * 60);
-                int steps = distanceToSteps(distance);
-                MET = 3.5;
-                int calBurned = caloriesBurnedActivity(time);
-                MET = 0.0;
-                String slot = timeSlot;
-                addDataFromInfo("Steps", date, timeSlot, steps);
-                addDataFromInfo("Calories_Out", date, slot, calBurned);
-                lblStepsAdded.setText("Steps value has been updated Successfully!");
-                lblStepsAdded.setTextFill(Color.GREEN);
-                menuTimePeriodSteps.setText("Time");
-                TBoxSteps.setText("");
-            } else {
-                lblStepsAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as a decimal");
-                lblStepsAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
+//    @FXML
+//    void addStepsBtnClicked(ActionEvent event) throws SQLException {
+//        if (TBoxSteps.getText() != "" || stepsDatePicker.getValue() != null
+//                || timeSlot != "") {
+//            boolean isValid = checkEnteredDataInfo("Steps", stepsDatePicker.getValue(), TBoxSteps);
+//            if (isValid == true) {
+//                Double distance = Double.parseDouble(TBoxSteps.getText());
+//                String date = stepsDatePicker.getValue().toString();
+//                int time = (int) ((distance / 4.9) * 60);
+//                int steps = distanceToSteps(distance);
+//                MET = 3.5;
+//                int calBurned = caloriesBurnedActivity(time);
+//                MET = 0.0;
+//                String slot = timeSlot;
+//                addDataFromInfo("Steps", date, timeSlot, steps);
+//                addDataFromInfo("Calories_Out", date, slot, calBurned);
+//                lblStepsAdded.setText("Steps value has been updated Successfully!");
+//                lblStepsAdded.setTextFill(Color.GREEN);
+//                menuTimePeriodSteps.setText("Time");
+//                TBoxSteps.setText("");
+//            } else {
+//                lblStepsAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as a decimal");
+//                lblStepsAdded.setTextFill(Color.RED);
+//            }
+//        }
+//    }
     //
     //Sleep
     //
@@ -1717,16 +1697,15 @@ public class ControllerIWillSurvive {
 
     }
 
-    private int distanceToSteps(Double distance) {
-        int steps = 0;
-        if (user.getGender().equals("male")) {
-            steps = (int) ((int) (distance * 1000.0) / 0.762);
-        } else {
-            steps = (int) ((int) (distance * 1000.0) / 0.6604);
-        }
-        return steps;
-    }
-
+//    private int distanceToSteps(Double distance) {
+//        int steps = 0;
+//        if (user.getGender().equals("male")) {
+//            steps = (int) ((int) (distance * 1000.0) / 0.762);
+//        } else {
+//            steps = (int) ((int) (distance * 1000.0) / 0.6604);
+//        }
+//        return steps;
+//    }
     //
     //Activity
     //
@@ -1989,7 +1968,7 @@ public class ControllerIWillSurvive {
     }
 
     private int caloriesBurnedActivity(int time) {
-        int cal = (int) (time * ((MET * 3.5 * user.getWeight()) / 200));
+        int cal = (int) (time * ((MET * 3.5 * user.getNumFamily()) / 200));
         return cal;
     }
 
