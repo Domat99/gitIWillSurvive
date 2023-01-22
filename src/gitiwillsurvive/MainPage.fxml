@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1300.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gitiwillsurvive.ControllerIWillSurvive">
+<ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1300.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gitiwillsurvive.ControllerIWillSurvive">
    <content>
-      <BorderPane maxHeight="Infinity" maxWidth="Infinity" prefHeight="1100.0" prefWidth="1200.0">
+      <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1200.00" prefHeight="1100.0" prefWidth="1200.0">
          <center>
             <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1200.0" prefWidth="1200.0" style="-fx-background-color: #B4C7E7;" BorderPane.alignment="CENTER">
                <children>
@@ -32,7 +32,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblStatus" layoutX="925.0" layoutY="272.0" text="DELETE LATER" textAlignment="RIGHT">
+                  <Label fx:id="lblStatus" alignment="TOP_LEFT" layoutX="696.0" layoutY="250.0" prefHeight="76.0" prefWidth="461.0" text="STATUS" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="28.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblErrors" layoutX="59.0" layoutY="286.0" prefHeight="34.0" prefWidth="892.0" text="LABEL">
+                  <Label fx:id="lblErrors" layoutX="27.0" layoutY="1138.0" prefHeight="34.0" prefWidth="1114.0" textAlignment="CENTER">
                      <font>
                         <Font name="Bell MT" size="18.0" />
                      </font>
@@ -85,33 +85,33 @@
                         <Font name="Bell MT" size="28.0" />
                      </font>
                   </Label>
-                  <Label layoutX="340.0" layoutY="179.0" text="Total Monthly Expences:" textAlignment="RIGHT">
+                  <Label layoutX="338.0" layoutY="149.0" text="Total Monthly Expences:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTotalExpences" alignment="CENTER_RIGHT" layoutX="705.0" layoutY="179.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblTotalExpences" alignment="CENTER_RIGHT" layoutX="703.0" layoutY="149.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="830.0" layoutY="179.0" prefHeight="43.0" prefWidth="29.0" text="\$">
+                  <Label layoutX="828.0" layoutY="149.0" prefHeight="43.0" prefWidth="29.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Line endX="565.6666259765625" layoutX="600.0" layoutY="248.0" startX="-563.6666870117188" style="-fx-stroke: #9F2ABC#9F2ABC;" />
+                  <Line endX="565.6666259765625" layoutX="598.0" layoutY="218.0" startX="-563.6666870117188" style="-fx-stroke: #9F2ABC#9F2ABC;" />
                   <Label layoutX="148.0" layoutY="330.0" text="Phone Bills:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblPhoneBills" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="330.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblPhoneBills" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="330.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="445.0" layoutY="330.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="330.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -126,12 +126,12 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="308.5" layoutY="260.0" style="-fx-underline: true;" text="Detailed Monthly Expences:" textAlignment="RIGHT">
+                  <Label layoutX="99.0" layoutY="229.0" style="-fx-underline: true;" text="Detailed Monthly Expences:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="50.0" />
                      </font>
                   </Label>
-                  <Label layoutX="700.0" layoutY="330.0" text="Rent/Morgage:" textAlignment="RIGHT">
+                  <Label layoutX="701.0" layoutY="330.0" text="Rent/Morgage:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -161,12 +161,12 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblInternet" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="469.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblInternet" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="469.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="445.0" layoutY="469.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="469.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -181,7 +181,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="700.0" layoutY="469.0" text="Electricity Bills:" textAlignment="RIGHT">
+                  <Label layoutX="696.0" layoutY="469.0" text="Electricity Bills:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -206,17 +206,17 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="154.0" layoutY="610.0" text="Education Costs:" textAlignment="RIGHT">
+                  <Label layoutX="78.0" layoutY="610.0" text="Education Costs:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblEducation" alignment="CENTER_RIGHT" layoutX="321.0" layoutY="610.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblEducation" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="610.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="451.0" layoutY="610.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="610.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -231,12 +231,12 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="706.0" layoutY="610.0" text="Groceries:" textAlignment="RIGHT">
+                  <Label layoutX="781.0" layoutY="610.0" text="Groceries:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblGroceries" alignment="CENTER_RIGHT" layoutX="944.0" layoutY="610.0" prefHeight="43.0" prefWidth="109.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblGroceries" alignment="CENTER_RIGHT" layoutX="938.0" layoutY="610.0" prefHeight="43.0" prefWidth="109.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -256,17 +256,17 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="154.0" layoutY="749.0" text="Insurance:" textAlignment="RIGHT">
+                  <Label layoutX="171.0" layoutY="749.0" text="Insurance:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblInsurance" alignment="CENTER_RIGHT" layoutX="321.0" layoutY="749.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblInsurance" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="749.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="451.0" layoutY="749.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="749.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -281,12 +281,12 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="706.0" layoutY="749.0" text="Transportation:" textAlignment="RIGHT">
+                  <Label layoutX="700.0" layoutY="749.0" text="Transportation:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblTransportation" alignment="CENTER_RIGHT" layoutX="944.0" layoutY="749.0" prefHeight="43.0" prefWidth="109.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblTransportation" alignment="CENTER_RIGHT" layoutX="938.0" layoutY="749.0" prefHeight="43.0" prefWidth="109.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -306,17 +306,17 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="148.0" layoutY="886.0" text="Health:" textAlignment="RIGHT">
+                  <Label layoutX="215.0" layoutY="886.0" text="Health:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblHealth" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="886.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblHealth" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="886.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="445.0" layoutY="886.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="886.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -331,7 +331,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="700.0" layoutY="886.0" text="Shopping:" textAlignment="RIGHT">
+                  <Label layoutX="785.0" layoutY="886.0" text="Shopping:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -356,17 +356,17 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="148.0" layoutY="1025.0" text="Leisure:" textAlignment="RIGHT">
+                  <Label layoutX="206.0" layoutY="1025.0" text="Leisure:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblLeisure" alignment="CENTER_RIGHT" layoutX="315.0" layoutY="1025.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
+                  <Label fx:id="lblLeisure" alignment="CENTER_RIGHT" layoutX="330.0" layoutY="1025.0" prefHeight="43.0" prefWidth="119.0" text="______" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="445.0" layoutY="1025.0" prefHeight="34.0" prefWidth="38.0" text="\$">
+                  <Label layoutX="457.0" layoutY="1025.0" prefHeight="34.0" prefWidth="38.0" text="\$">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -437,11 +437,6 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblTest" layoutX="340.0" layoutY="40.0" prefHeight="34.0" prefWidth="61.0" text="____">
-                     <font>
-                        <Font name="Bell MT" size="28.0" />
-                     </font>
-                  </Label>
                </children>
             </AnchorPane>
          </top>
