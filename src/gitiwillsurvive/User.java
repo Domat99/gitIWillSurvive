@@ -12,18 +12,14 @@ package gitiwillsurvive;
 public class User {
     private String userName;
     private String password;
-    private String gender;
-    private String dateOfBirth;
-    private int height;
-    private int weight;
+    private int monthly_income;
+    private int numFamily;
 
-    public User(String userName, String password, String gender, String dateOfBirth, int height, int weight) {
+    public User(String userName, String password, int monthly_income, int numFamily) {
         this.userName = userName;
         this.password = password;
-        this.gender = gender;
-        this.dateOfBirth = dateOfBirth;
-        this.height = height;
-        this.weight = weight;
+        this.monthly_income = monthly_income;
+        this.numFamily = numFamily;
     }
 
     public String getUserName() {
@@ -42,36 +38,22 @@ public class User {
         this.password = password;
     }
 
-    public String getGender() {
-        return this.gender;
+
+    public int getMonthly_income() {
+        return this.monthly_income;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setMonthly_income(int monthly_income) {
+        this.monthly_income = monthly_income;
     }
 
-    public String getDateOfBirth() {
-        return this.dateOfBirth;
+    public int getNumFamily() {
+        return this.numFamily;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
+    public void setNumFamily(int numFamily) {
+        this.numFamily = numFamily;
     }
 
-    public int getHeight() {
-        return this.height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
-        return this.weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
+    
 }
