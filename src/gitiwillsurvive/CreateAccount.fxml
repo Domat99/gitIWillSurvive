@@ -70,6 +70,11 @@
             <Font size="19.0" />
          </font>
       </PasswordField>
+      <TextField fx:id="txtFldIncome" layoutX="287.0" layoutY="416.0" prefHeight="42.0" prefWidth="388.0" promptText="Round to the nearest number" style="-fx-background-radius: 12;">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </TextField>
       <TextField fx:id="txtFldFamilyMembers" layoutX="287.0" layoutY="473.0" prefHeight="42.0" prefWidth="388.0" promptText="Number of family members" style="-fx-background-radius: 12;">
          <font>
             <Font size="19.0" />
@@ -85,10 +90,5 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="txtFldIncome" layoutX="287.0" layoutY="416.0" prefHeight="42.0" prefWidth="388.0" promptText="Round to the nearest number" style="-fx-background-radius: 12;">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </TextField>
    </children>
 </AnchorPane>
