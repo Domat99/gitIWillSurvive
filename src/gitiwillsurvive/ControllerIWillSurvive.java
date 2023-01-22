@@ -658,7 +658,7 @@ public class ControllerIWillSurvive {
             
         } else {
             
-            if ((user.getMonthly_income() * saving / 100) < (user.getMonthly_income() - exp)) {
+            if ((user.getMonthly_income() * saving / 100) > (user.getMonthly_income() - exp)) {
                 lblStatus.setText("We suggest looking into your expences to keep up with your saving goal");
                 lblStatus.setStyle("-fx-text-fill: #D05F12");
             }
