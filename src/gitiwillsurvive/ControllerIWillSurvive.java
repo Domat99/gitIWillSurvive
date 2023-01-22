@@ -125,12 +125,8 @@ public class ControllerIWillSurvive {
     }
 
     //For the main page (dashboard) after sign in
-    
     @FXML
     private Button btnDeleteAccountMain;
-
-    @FXML
-    private Button btnInfoPage;
 
     @FXML
     private Button btnLoadGraphs;
@@ -181,13 +177,13 @@ public class ControllerIWillSurvive {
     private Button btnUpdateSavings;
 
     @FXML
-    private Label lblBmiInfo;
-
-    @FXML
     private Label lblEducation;
 
     @FXML
     private Label lblElectricity;
+
+    @FXML
+    private Label lblErrors;
 
     @FXML
     private Label lblGroceries;
@@ -221,6 +217,9 @@ public class ControllerIWillSurvive {
 
     @FXML
     private Label lblShopping;
+
+    @FXML
+    private Label lblStatus;
 
     @FXML
     private Label lblTest;
@@ -274,81 +273,103 @@ public class ControllerIWillSurvive {
     private TextField txtFieldUpdateSavings;
 
     @FXML
-    void infoBtnClicked(ActionEvent event) {
-
+    void updateBtnClicked1(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Phone", txtFieldPhone, lblPhoneBills);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked1(ActionEvent event) {
-
+    void updateBtnClicked10(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Shopping", txtFieldShopping, lblShopping);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked10(ActionEvent event) {
-
+    void updateBtnClicked11(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Leisure", txtFieldLeisure, lblLeisure);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked11(ActionEvent event) {
-
+    void updateBtnClicked12(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Other", txtFieldOther, lblOther);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked12(ActionEvent event) {
-
+    void updateBtnClicked2(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Rent", txtFieldRent, lblRent);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked2(ActionEvent event) {
-
+    void updateBtnClicked3(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Internet", txtFieldInternet, lblInternet);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked3(ActionEvent event) {
-
+    void updateBtnClicked4(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Electricity", txtFieldElectricity, lblElectricity);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked4(ActionEvent event) {
-
+    void updateBtnClicked5(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Education", txtFieldEducation, lblEducation);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked5(ActionEvent event) {
-
+    void updateBtnClicked6(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Groceries", txtFieldGroceries, lblGroceries);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked6(ActionEvent event) {
-
+    void updateBtnClicked7(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Insurance", txtFieldInsurance, lblInsurance);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked7(ActionEvent event) {
-
+    void updateBtnClicked8(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Transport", txtFieldTransportation, lblTransportation);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked8(ActionEvent event) {
-
+    void updateBtnClicked9(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Health", txtFieldHealth, lblHealth);
+        int totExp = getData();
+        lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
-    void updateBtnClicked9(ActionEvent event) {
-
+    void updateIncomeBtnClicked(ActionEvent event) throws SQLException {
+        updateData(user.getUserName(), "Income", txtFieldUpdateIncome, lblIncomeMonth);
     }
 
     @FXML
-    void updateIncomeBtnClicked(ActionEvent event) {
-
+    void updateSavingBtnClicked(ActionEvent event) throws SQLException {
+        if (Integer.parseInt(txtFieldUpdateSavings.getText()) <= 100 && Integer.parseInt(txtFieldUpdateSavings.getText()) >= 0) {
+            updateData(user.getUserName(), "Saving", txtFieldUpdateSavings, lblSavingPercent);
+        } else {
+            lblErrors.setText("Please set the saving value to be between 0 and 100!");
+            lblErrors.setStyle("-fx-text-fill: #FF0000");
+        }
     }
-
-    @FXML
-    void updateSavingBtnClicked(ActionEvent event) {
-
-    }
-
-
 
     //For sign up page (create account) 
     @FXML
@@ -363,7 +384,6 @@ public class ControllerIWillSurvive {
     private PasswordField txtFldCreatePassword;
     @FXML
     private PasswordField txtFldConfirmPassword;
-
 
     @FXML
     private void createClicked(ActionEvent event) throws IOException, SQLException {
@@ -472,7 +492,7 @@ public class ControllerIWillSurvive {
 
     //Takes the user's info and creates an account.
     private void save(TextField username, PasswordField password,
-            TextField income, TextField familyNum, Label lbl1) throws SQLException {
+            TextField income, TextField familyNum) throws SQLException {
 
         Connection connection = connectionProvider.getConnection();
         String query = "INSERT INTO Users (UserName, Password, Income, Family) VALUES(?,?,?,?) ";
@@ -507,10 +527,10 @@ public class ControllerIWillSurvive {
                 + "     Education integer,\n"
                 + "     Groceries integer,\n"
                 + "     Insurance integer,\n"
-                + "     Transport integer\n"
-                + "     Health integer\n"
-                + "     Leisure integer\n"
-                + "     Shopping integer\n"
+                + "     Transport integer,\n"
+                + "     Health integer,\n"
+                + "     Leisure integer,\n"
+                + "     Shopping integer,\n"
                 + "     Other integer);";
 
         try {
@@ -556,7 +576,6 @@ public class ControllerIWillSurvive {
 
     }
 
-
     //Checks if the username is already taken. If not, it saves the new user's
     //info using the save() function, creates a tabel in the database for the user
     //for the last 8 days and adds its name to the users table.
@@ -584,9 +603,9 @@ public class ControllerIWillSurvive {
                 lbl2.setText("Success! Welcome to Sehtak Fitness!");
                 lbl2.setStyle("-fx-text-fill: #00B050");//Green
 
-                save(username2, password2, income, familyNum, lbl2);
+                save(username2, password2, income, familyNum);
                 createUserTable(username2);
-                changeScenes("FXMLHealth.fxml", 500, 800);
+                changeScenes("MainPage.fxml", 500, 800);
             }
 
         } catch (SQLException ex) {
@@ -602,76 +621,101 @@ public class ControllerIWillSurvive {
     //*
     //*
     //*
-
     @FXML
-    void loadGraphsBtnClicked(ActionEvent event) throws IOException, SQLException {
+    void loadBtnClicked(ActionEvent event) throws IOException, SQLException {
 
         lblIncomeMonth.setText(Integer.toString(user.getMonthly_income()));
-        lblSavingPercent.setText(Integer.toString(user.getNumFamily()));
+        
+        loadData("Saving", lblSavingPercent);
+        getData();
+
+    }
+    
+    private int getData() throws SQLException{
+        
+        int ex2 = loadData("Phone", lblPhoneBills);
+        int ex3 = loadData("Rent", lblRent);
+        int ex4 = loadData("Internet", lblInternet);
+        int ex5 = loadData("Electricity", lblElectricity);
+        int ex6 = loadData("Education", lblEducation);
+        int ex7 = loadData("Groceries", lblGroceries);
+        int ex8 = loadData("Insurance", lblInsurance);
+        int ex9 = loadData("Transport", lblTransportation);
+        int ex10 = loadData("Health", lblHealth);
+        int ex11 = loadData("Shopping", lblShopping);
+        int ex12 = loadData("leisure", lblLeisure);
+        int ex13 = loadData("Other", lblOther);
+        
+        int totExp = ex2 + ex3 + ex4 + ex5 + ex6 + ex7 + ex8 + ex9 + ex10 + ex11 + ex12 + ex13;
+        lblTotalExpences.setText(Integer.toString(totExp));
+        
+        return totExp;
     }
 
-//    @FXML
-//    void updateHeightBtnClicked(ActionEvent event) throws SQLException {
-//        boolean isInteger = true;
-//        int height = 0;
-//        try {
-//            height = Integer.parseInt(txtFieldUpdateHeight.getText());
-//
-//        } catch (NumberFormatException ex) {
-//            System.out.println("An Error Has Occured With updateHeightBtnClicked: " + ex.getMessage());
-//            lblBmiInfo.setText("Please enter the values as integers");
-//            lblBmiInfo.setTextFill(Color.RED);
-//            lblBmi.setTextFill(Color.RED);
-//            isInteger = false;
-//        }
-//        if (isInteger == true) {
-//            Connection connection = connectionProvider.getConnection();
-//            String query2 = "UPDATE Users SET Height = " + height + " WHERE UserName = \"" + user.getUserName() + "\"";
-//
-//            try {
-//                PreparedStatement stmt = connection.prepareStatement(query2);
-//
-//                stmt.executeUpdate();
-//
-//                user.setMonthly_income(height);
-//
-//                lblHeight.setText(Integer.toString(height));
-//                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
-//                txtFieldUpdateHeight.setText("");
-//
-//            } catch (SQLException ex) {
-//                System.out.println("An Error Has Occured With User Height Updating: " + ex.getMessage());
-//            }
-//            connection.close();
-//        }
-//
-//    }
+    private int loadData(String expence, Label lbl) throws SQLException {
 
-    
-    //Import user data from the user's table in database
-    private int[] getGraphsData(String name, String column, LocalDate today) throws SQLException {
-
-        String dateToday = today.toString();
-        int[] results = new int[4];
         Connection connection = connectionProvider.getConnection();
-        String query = "SELECT " + column + " FROM " + name + " WHERE Date = \"" + dateToday + "\"";
-
+        String query;
+        if (expence.equals("Income")) {
+            query = "SELECT Income FROM Users WHERE UserName = \"" + user.getUserName() + "\"";
+        }else{
+            query = "SELECT " + expence + " FROM " + user.getUserName();
+        }
+        
+        int data = 0;
+                
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
 
             ResultSet resultSet = stmt.executeQuery();
-            int i = 0;
-            int retrieveColumn;
-            while (resultSet.next()) {
-                retrieveColumn = resultSet.getInt(column);
-                results[i] = retrieveColumn;
-                i += 1;
-            }
+            
+            data = resultSet.getInt(expence);
+
         } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With setGraphsData Selecting: " + ex.getMessage());
+            System.out.println("An Error Has Occured With loading data: " + ex.getMessage());
         }
+        
+        lbl.setText(Integer.toString(data));
         connection.close();
-        return results;
+        return data;
+    }
+
+    void updateData(String name, String expense, TextField field, Label lbl) throws SQLException {
+        boolean isInteger = true;
+        int expenseTest = 0;
+        try {
+            expenseTest = Integer.parseInt(field.getText());
+
+        } catch (NumberFormatException ex) {
+            System.out.println("An Error Has Occured: " + ex.getMessage());
+            lblErrors.setText("Please enter the values as integers");
+            lblErrors.setTextFill(Color.RED);
+            lblErrors.setTextFill(Color.RED);
+            isInteger = false;
+        }
+        if (isInteger == true) {
+            Connection connection = connectionProvider.getConnection();
+            String query2;
+
+            if (expense.equals("Income")) {
+                query2 = "UPDATE Users SET Income = " + expenseTest + " WHERE UserName = \"" + user.getUserName() + "\"";
+                user.setMonthly_income(expenseTest);
+            } else {
+                query2 = "UPDATE " + name + " SET " + expense + " = \"" + expenseTest + "\"";
+            }
+            try {
+                PreparedStatement stmt = connection.prepareStatement(query2);
+
+                stmt.executeUpdate();
+
+                lbl.setText(Integer.toString(expenseTest));
+                field.setText("");
+
+            } catch (SQLException ex) {
+                System.out.println("An Error Has Occured With User Data Updating: " + ex.getMessage());
+            }
+            connection.close();
+        }
 
     }
 
@@ -778,5 +822,5 @@ public class ControllerIWillSurvive {
     private void cancelDeleteClicked(ActionEvent event) throws IOException {
         changeScenes("MainPage.fxml", 950, 1500);
     }
-    
+
 }
