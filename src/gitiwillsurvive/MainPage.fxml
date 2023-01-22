@@ -156,7 +156,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label layoutX="148.0" layoutY="469.0" text="Internet Bills:" textAlignment="RIGHT">
+                  <Label layoutX="121.0" layoutY="469.0" text="Internet Bills:" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="35.0" />
                      </font>
@@ -428,11 +428,6 @@
                      </font>
                   </Label>
                   <Button fx:id="btnDeleteAccountMain" layoutX="854.0" layoutY="30.0" mnemonicParsing="false" onAction="#deleteAccount2Clicked" style="-fx-cursor: hand; -fx-background-color: red; -fx-background-radius: 12;" text="DELETE ACCOUNT" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnInfoPage" layoutX="622.0" layoutY="30.0" mnemonicParsing="false" onAction="#infoBtnClicked" prefHeight="43.0" prefWidth="117.0" style="-fx-background-color: #9F2ABC; -fx-cursor: hand; -fx-background-radius: 12;" text="More Info" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
