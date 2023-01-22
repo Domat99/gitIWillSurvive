@@ -34,7 +34,7 @@ public class GitIWillSurvive extends Application {
         stg = primaryStage;
         stg.setResizable(true);
         stg.setMaxHeight(900);
-        stg.setMaxWidth(1500);
+        stg.setMaxWidth(1225);
         stg.centerOnScreen();
 
         Parent root1 = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
