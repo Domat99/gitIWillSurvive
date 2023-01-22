@@ -20,7 +20,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import DBConnection.DBConnectionProvider;
-import java.util.Arrays;
 
 /**
  *

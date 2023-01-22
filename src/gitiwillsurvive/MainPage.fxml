@@ -32,7 +32,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label fx:id="lblStatus" alignment="TOP_LEFT" layoutX="625.0" layoutY="225.0" prefHeight="107.0" prefWidth="539.0" text="STATUS" textAlignment="RIGHT">
+                  <Label fx:id="lblStatus" alignment="TOP_LEFT" layoutX="625.0" layoutY="225.0" prefHeight="107.0" prefWidth="539.0" text="STATUS" wrapText="true">
                      <font>
                         <Font name="Bell MT" size="25.0" />
                      </font>
