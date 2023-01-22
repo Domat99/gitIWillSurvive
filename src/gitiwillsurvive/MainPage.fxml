@@ -32,7 +32,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <Label layoutX="925.0" layoutY="272.0" text="DELETE LATER" textAlignment="RIGHT">
+                  <Label fx:id="lblStatus" layoutX="925.0" layoutY="272.0" text="DELETE LATER" textAlignment="RIGHT">
                      <font>
                         <Font name="Bell MT" size="28.0" />
                      </font>
@@ -70,7 +70,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblBmiInfo" layoutX="59.0" layoutY="286.0" prefHeight="34.0" prefWidth="892.0" text="LABEL">
+                  <Label fx:id="lblErrors" layoutX="59.0" layoutY="286.0" prefHeight="34.0" prefWidth="892.0" text="LABEL">
                      <font>
                         <Font name="Bell MT" size="18.0" />
                      </font>
