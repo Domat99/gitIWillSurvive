@@ -46,10 +46,7 @@ public class ControllerIWillSurvive {
 
     DBConnectionProvider connectionProvider = new DBConnectionProvider();
 
-    static Double MET = 0.0;
-    static String timeSlot = "";
     static User user;
-    static Double CPG = 0.0;
 
     private void changeScenes(String sceneName, int h, int w) throws IOException {
 
@@ -77,7 +74,7 @@ public class ControllerIWillSurvive {
     }
 
     public void signUpClicked() throws IOException {
-        changeScenes("CreateAccountHealth.fxml", 775, 820);
+        changeScenes("CreateAccount.fxml", 775, 820);
 
     }
 
@@ -97,8 +94,6 @@ public class ControllerIWillSurvive {
             boolean data = importData(test1, test2, lblNotFound);
             if (data == true) {
                 user = getUserObject(test1);
-                checkEmptyDays();
-                deleteOldData();
                 changeScenes("MainPage.fxml", 950, 1500);
 
             }
@@ -130,23 +125,9 @@ public class ControllerIWillSurvive {
     }
 
     //For the main page (dashboard) after sign in
+    
     @FXML
-    private LineChart<String, Number> graphSteps;
-
-    @FXML
-    private ProgressIndicator pieSleep;
-
-    @FXML
-    private ProgressBar barWater;
-
-    @FXML
-    private LineChart<String, Number> graphCalories;
-
-    @FXML
-    private LineChart<String, Number> graphHR;
-
-    @FXML
-    private LineChart<String, Number> graphOL;
+    private Button btnDeleteAccountMain;
 
     @FXML
     private Button btnInfoPage;
@@ -155,28 +136,219 @@ public class ControllerIWillSurvive {
     private Button btnLoadGraphs;
 
     @FXML
-    private Label lblHeight;
+    private Button btnLogOut;
 
     @FXML
-    private TextField txtFieldUpdateHeight;
+    private Button btnUpdate1;
 
     @FXML
-    private Button btnUpdateHeight;
+    private Button btnUpdate10;
 
     @FXML
-    private Label lblWeight;
+    private Button btnUpdate11;
 
     @FXML
-    private TextField txtFieldUpdateWeight;
+    private Button btnUpdate12;
 
     @FXML
-    private Button btnUpdateWeight;
+    private Button btnUpdate2;
 
     @FXML
-    private Label lblBmi;
+    private Button btnUpdate3;
+
+    @FXML
+    private Button btnUpdate4;
+
+    @FXML
+    private Button btnUpdate5;
+
+    @FXML
+    private Button btnUpdate6;
+
+    @FXML
+    private Button btnUpdate7;
+
+    @FXML
+    private Button btnUpdate8;
+
+    @FXML
+    private Button btnUpdate9;
+
+    @FXML
+    private Button btnUpdateIncome;
+
+    @FXML
+    private Button btnUpdateSavings;
 
     @FXML
     private Label lblBmiInfo;
+
+    @FXML
+    private Label lblEducation;
+
+    @FXML
+    private Label lblElectricity;
+
+    @FXML
+    private Label lblGroceries;
+
+    @FXML
+    private Label lblHealth;
+
+    @FXML
+    private Label lblIncomeMonth;
+
+    @FXML
+    private Label lblInsurance;
+
+    @FXML
+    private Label lblInternet;
+
+    @FXML
+    private Label lblLeisure;
+
+    @FXML
+    private Label lblOther;
+
+    @FXML
+    private Label lblPhoneBills;
+
+    @FXML
+    private Label lblRent;
+
+    @FXML
+    private Label lblSavingPercent;
+
+    @FXML
+    private Label lblShopping;
+
+    @FXML
+    private Label lblTest;
+
+    @FXML
+    private Label lblTotalExpences;
+
+    @FXML
+    private Label lblTransportation;
+
+    @FXML
+    private TextField txtFieldEducation;
+
+    @FXML
+    private TextField txtFieldElectricity;
+
+    @FXML
+    private TextField txtFieldGroceries;
+
+    @FXML
+    private TextField txtFieldHealth;
+
+    @FXML
+    private TextField txtFieldInsurance;
+
+    @FXML
+    private TextField txtFieldInternet;
+
+    @FXML
+    private TextField txtFieldLeisure;
+
+    @FXML
+    private TextField txtFieldOther;
+
+    @FXML
+    private TextField txtFieldPhone;
+
+    @FXML
+    private TextField txtFieldRent;
+
+    @FXML
+    private TextField txtFieldShopping;
+
+    @FXML
+    private TextField txtFieldTransportation;
+
+    @FXML
+    private TextField txtFieldUpdateIncome;
+
+    @FXML
+    private TextField txtFieldUpdateSavings;
+
+    @FXML
+    void infoBtnClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked1(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked10(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked11(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked12(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked2(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked3(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked4(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked5(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked6(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked7(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked8(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateBtnClicked9(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateIncomeBtnClicked(ActionEvent event) {
+
+    }
+
+    @FXML
+    void updateSavingBtnClicked(ActionEvent event) {
+
+    }
+
+
 
     //For sign up page (create account) 
     @FXML
@@ -191,16 +363,7 @@ public class ControllerIWillSurvive {
     private PasswordField txtFldCreatePassword;
     @FXML
     private PasswordField txtFldConfirmPassword;
-    @FXML
-    private RadioButton rbMale;
-    @FXML
-    private RadioButton rbFemale;
-    @FXML
-    private DatePicker birthDate;
-    @FXML
-    private TextField txtFldHeight;
-    @FXML
-    private TextField txtFldWeight;
+
 
     @FXML
     private void createClicked(ActionEvent event) throws IOException, SQLException {
@@ -310,8 +473,9 @@ public class ControllerIWillSurvive {
     //Takes the user's info and creates an account.
     private void save(TextField username, PasswordField password,
             TextField income, TextField familyNum, Label lbl1) throws SQLException {
+
         Connection connection = connectionProvider.getConnection();
-        String query = "INSERT INTO Users (UserName, Password, Income, Family, Saving) VALUES(?,?,?,?,?) ";
+        String query = "INSERT INTO Users (UserName, Password, Income, Family) VALUES(?,?,?,?) ";
 
         try {
             PreparedStatement pstmt = connection.prepareStatement(query);
@@ -320,8 +484,7 @@ public class ControllerIWillSurvive {
             pstmt.setString(2, password.getText().trim());
             pstmt.setString(3, income.getText().trim());
             pstmt.setString(4, familyNum.getText().trim());
-            pstmt.setString(5, "-1");
-            
+
             pstmt.executeUpdate();
 
         } catch (SQLException ex) {
@@ -336,15 +499,19 @@ public class ControllerIWillSurvive {
         String user = username.getText().toLowerCase().trim();
 
         String sql = "CREATE TABLE IF NOT EXISTS " + user + " (\n"
-                + "	Date text,\n"
-                + "	time text,\n"
-                + "	Heart_Rate integer,\n"
-                + "     Oxygen_Level integer,\n"
-                + "     Calories_In integer,\n"
-                + "     Steps integer,\n"
-                + "     Calories_Out integer,\n"
-                + "     Sleep real,\n"
-                + "     Water integer\n);";
+                + "	Saving integer,\n"
+                + "	Phone integer,\n"
+                + "	Rent integer,\n"
+                + "     Internet integer,\n"
+                + "     Electricity integer,\n"
+                + "     Education integer,\n"
+                + "     Groceries integer,\n"
+                + "     Insurance integer,\n"
+                + "     Transport integer\n"
+                + "     Health integer\n"
+                + "     Leisure integer\n"
+                + "     Shopping integer\n"
+                + "     Other integer);";
 
         try {
 
@@ -355,131 +522,45 @@ public class ControllerIWillSurvive {
         } catch (SQLException ex) {
             System.out.println("An Error Has Occured while creating a user table: " + ex.getMessage());
         }
+        insertDataNewTable(user);
         connection.close();
     }
 
-    private void checkEmptyDays() throws SQLException {
-        LocalDate today = LocalDate.now();
+    private void insertDataNewTable(String userName) throws SQLException {
+
         Connection connection = connectionProvider.getConnection();
-        String query = "SELECT Date FROM " + user.getUserName();
-        int minDiff = 8;
+        String query = "INSERT INTO " + userName + " (Saving, Phone, Rent, Internet, Electricity, Education, Groceries, Insurance, Transport, Health, Leisure, Shopping, Other) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            PreparedStatement pstmt = connection.prepareStatement(query);
 
-            PreparedStatement stmt = connection.prepareStatement(query);
+            pstmt.setInt(1, 0);
+            pstmt.setInt(2, 0);
+            pstmt.setInt(3, 0);
+            pstmt.setInt(4, 0);
+            pstmt.setInt(5, 0);
+            pstmt.setInt(6, 0);
+            pstmt.setInt(7, 0);
+            pstmt.setInt(8, 0);
+            pstmt.setInt(9, 0);
+            pstmt.setInt(10, 0);
+            pstmt.setInt(11, 0);
+            pstmt.setInt(12, 0);
+            pstmt.setInt(13, 0);
 
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String testDayString = resultSet.getString("Date");
-                LocalDate testDay = LocalDate.parse(testDayString);
-                Period period = Period.between(testDay, today);
-                if (period.getDays() >= 0 && period.getDays() < minDiff) {
-                    minDiff = period.getDays();
-                }
-            }
+            pstmt.executeUpdate();
 
         } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With checkEmptyDays Selecting: " + ex.getMessage());
+            System.out.println("An Error Has Occured With adding empty data to user while creating: " + ex.getMessage());
         }
         connection.close();
-        if (minDiff != 0) {
-            lastDaysInsertEmptyData(user.getUserName(), minDiff);
-        }
 
     }
 
-    private void lastDaysInsertEmptyData(String userName, int missingDays) throws SQLException {
-        LocalDate day = LocalDate.now();
-        day = day.plusDays(1);
-        String dayString = day.toString();
-        String twelveToSixAM = "0-6";
-        String sixToTwelveAM = "6-12";
-        String twelveToSixPM = "12-18";
-        String sixToTwelvePM = "18-24";
-        for (int i = 0; i < missingDays; i++) {
-            day = day.minusDays(1);
-            dayString = day.toString();
-            for (int j = 0; j < 4; j++) {
-                Connection connection = connectionProvider.getConnection();
-                String query = "INSERT INTO " + userName + " (Date, time, Heart_Rate, Oxygen_Level, Calories_In, Steps, Calories_Out, Sleep, Water) VALUES(?,?,?,?,?,?,?,?,?) ";
-                try {
-                    PreparedStatement pstmt = connection.prepareStatement(query);
-
-                    pstmt.setString(1, dayString);
-                    if (j == 0) {
-                        pstmt.setString(2, twelveToSixAM);
-                    } else if (j == 1) {
-                        pstmt.setString(2, sixToTwelveAM);
-                    } else if (j == 2) {
-                        pstmt.setString(2, twelveToSixPM);
-                    } else if (j == 3) {
-                        pstmt.setString(2, sixToTwelvePM);
-                    }
-                    pstmt.setInt(3, 0);
-                    pstmt.setInt(4, 0);
-                    pstmt.setInt(5, 0);
-                    pstmt.setInt(6, 0);
-                    pstmt.setInt(7, 0);
-                    pstmt.setDouble(8, 0.0);
-                    pstmt.setInt(9, 0);
-
-                    pstmt.executeUpdate();
-
-                } catch (SQLException ex) {
-                    System.out.println("An Error Has Occured With adding empty data to user while creating: " + ex.getMessage());
-                }
-                connection.close();
-            }
-        }
-    }
-
-    private void deleteOldData() throws SQLException {
-        LocalDate today = LocalDate.now();
-        Connection connection = connectionProvider.getConnection();
-        String query = "SELECT Date FROM " + user.getUserName();
-        ArrayList<String> oldDays = new ArrayList();
-        try {
-
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            ResultSet resultSet = stmt.executeQuery();
-
-            while (resultSet.next()) {
-                String testDayString = resultSet.getString("Date");
-                LocalDate testDay = LocalDate.parse(testDayString);
-                Period period = Period.between(testDay, today);
-                if (period.getDays() >= 8) {
-                    if (oldDays.contains(testDayString) == false) {
-                        oldDays.add(testDayString);
-                    }
-                }
-            }
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With checkEmptyDays Selecting: " + ex.getMessage());
-        }
-        connection.close();
-        if (oldDays.size() > 0) {
-            for (int i = 0; i < oldDays.size(); i++) {
-                Connection connection2 = connectionProvider.getConnection();
-                String query2 = "DELETE FROM " + user.getUserName() + " WHERE Date = \"" + oldDays.get(i) + "\"";
-                try {
-
-                    PreparedStatement pstmt = connection2.prepareStatement(query2);
-
-                    pstmt.executeUpdate();
-
-                } catch (SQLException ex) {
-                    System.out.println("An Error Has Occured while deleting the account from the users data: " + ex.getMessage());
-                }
-                connection2.close();
-            }
-        }
-    }
 
     //Checks if the username is already taken. If not, it saves the new user's
     //info using the save() function, creates a tabel in the database for the user
     //for the last 8 days and adds its name to the users table.
-    private void checkUsername(TextField username2, PasswordField password2, TextField income, 
+    private void checkUsername(TextField username2, PasswordField password2, TextField income,
             TextField familyNum, Label lbl2) throws IOException, SQLException {
 
         Connection connection = connectionProvider.getConnection();
@@ -505,7 +586,6 @@ public class ControllerIWillSurvive {
 
                 save(username2, password2, income, familyNum, lbl2);
                 createUserTable(username2);
-                lastDaysInsertEmptyData(username2.getText().trim().toLowerCase(), 8);
                 changeScenes("FXMLHealth.fxml", 500, 800);
             }
 
@@ -522,129 +602,52 @@ public class ControllerIWillSurvive {
     //*
     //*
     //*
-    @FXML
-    void infoBtnClicked(ActionEvent event) throws IOException {
-        changeScenes("ViewInfoFXML.fxml", 750, 800);
-    }
 
     @FXML
     void loadGraphsBtnClicked(ActionEvent event) throws IOException, SQLException {
-        LocalDate today = LocalDate.now();
-        plotGraphDashboard(getGraphsData(user.getUserName(), "Steps", today), "Steps");
-        plotGraphDashboard(getGraphsData(user.getUserName(), "Calories_In", today), "Calories_In");
-        plotGraphDashboard(getGraphsData(user.getUserName(), "Heart_Rate", today), "Heart_Rate");
-        plotGraphDashboard(getGraphsData(user.getUserName(), "Oxygen_Level", today), "Oxygen_Level");
-        plotSleepGraphDashboard(getSleepData(user.getUserName(), today));
-        plotWaterGraphDashboard(getGraphsData(user.getUserName(), "Water", today));
-        lblHeight.setText(Integer.toString(user.getMonthly_income()));
-        lblWeight.setText(Integer.toString(user.getNumFamily()));
-        lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
+
+        lblIncomeMonth.setText(Integer.toString(user.getMonthly_income()));
+        lblSavingPercent.setText(Integer.toString(user.getNumFamily()));
     }
 
-    @FXML
-    void updateHeightBtnClicked(ActionEvent event) throws SQLException {
-        boolean isInteger = true;
-        int height = 0;
-        try {
-            height = Integer.parseInt(txtFieldUpdateHeight.getText());
+//    @FXML
+//    void updateHeightBtnClicked(ActionEvent event) throws SQLException {
+//        boolean isInteger = true;
+//        int height = 0;
+//        try {
+//            height = Integer.parseInt(txtFieldUpdateHeight.getText());
+//
+//        } catch (NumberFormatException ex) {
+//            System.out.println("An Error Has Occured With updateHeightBtnClicked: " + ex.getMessage());
+//            lblBmiInfo.setText("Please enter the values as integers");
+//            lblBmiInfo.setTextFill(Color.RED);
+//            lblBmi.setTextFill(Color.RED);
+//            isInteger = false;
+//        }
+//        if (isInteger == true) {
+//            Connection connection = connectionProvider.getConnection();
+//            String query2 = "UPDATE Users SET Height = " + height + " WHERE UserName = \"" + user.getUserName() + "\"";
+//
+//            try {
+//                PreparedStatement stmt = connection.prepareStatement(query2);
+//
+//                stmt.executeUpdate();
+//
+//                user.setMonthly_income(height);
+//
+//                lblHeight.setText(Integer.toString(height));
+//                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
+//                txtFieldUpdateHeight.setText("");
+//
+//            } catch (SQLException ex) {
+//                System.out.println("An Error Has Occured With User Height Updating: " + ex.getMessage());
+//            }
+//            connection.close();
+//        }
+//
+//    }
 
-        } catch (NumberFormatException ex) {
-            System.out.println("An Error Has Occured With updateHeightBtnClicked: " + ex.getMessage());
-            lblBmiInfo.setText("Please enter the values as integers");
-            lblBmiInfo.setTextFill(Color.RED);
-            lblBmi.setTextFill(Color.RED);
-            isInteger = false;
-        }
-        if (isInteger == true) {
-            Connection connection = connectionProvider.getConnection();
-            String query2 = "UPDATE Users SET Height = " + height + " WHERE UserName = \"" + user.getUserName() + "\"";
-
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query2);
-
-                stmt.executeUpdate();
-
-                user.setMonthly_income(height);
-
-                lblHeight.setText(Integer.toString(height));
-                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
-                txtFieldUpdateHeight.setText("");
-
-            } catch (SQLException ex) {
-                System.out.println("An Error Has Occured With User Height Updating: " + ex.getMessage());
-            }
-            connection.close();
-        }
-
-    }
-
-    @FXML
-    void updateWeightBtnClicked(ActionEvent event) throws SQLException {
-        boolean isInteger = true;
-        int weight = 0;
-        try {
-            weight = Integer.parseInt(txtFieldUpdateWeight.getText());
-
-        } catch (NumberFormatException ex) {
-            System.out.println("An Error Has Occured With updateWeightBtnClicked: " + ex.getMessage());
-            lblBmiInfo.setText("Please enter the values as integers");
-            lblBmiInfo.setTextFill(Color.RED);
-            lblBmi.setTextFill(Color.RED);
-            isInteger = false;
-        }
-
-        if (isInteger == true) {
-            Connection connection = connectionProvider.getConnection();
-            String query2 = "UPDATE Users SET Weight = " + weight + " WHERE UserName = \"" + user.getUserName() + "\"";
-
-            try {
-                PreparedStatement stmt = connection.prepareStatement(query2);
-
-                stmt.executeUpdate();
-
-                user.setNumFamily(weight);
-
-                lblWeight.setText(Integer.toString(weight));
-                lblBmi.setText(Integer.toString(calBMI(user.getMonthly_income(), user.getNumFamily())));
-                txtFieldUpdateWeight.setText("");
-
-            } catch (SQLException ex) {
-                System.out.println("An Error Has Occured With User Weight Updating: " + ex.getMessage());
-            }
-            connection.close();
-        }
-    }
-
-    private int calBMI(int height, int weight) {
-        double doubleHeight = height / 100.0;
-        int BMI = (int) (weight / Math.pow(doubleHeight, 2));
-        String BMIStat = "";
-        if (BMI < 18) {
-            BMIStat = "You are Underweight. You should eat more!";
-            lblBmiInfo.setTextFill(Color.DARKBLUE);
-            lblBmi.setTextFill(Color.DARKBLUE);
-        } else if (BMI >= 18 && BMI < 25) {
-            BMIStat = "You are Healthy! Keep it up!";
-            lblBmiInfo.setTextFill(Color.GREEN);
-            lblBmi.setTextFill(Color.GREEN);
-        } else if (BMI >= 25 && BMI < 30) {
-            BMIStat = "You are Overweight. You should start eating healthier!";
-            lblBmiInfo.setTextFill(Color.DARKORANGE);
-            lblBmi.setTextFill(Color.DARKORANGE);
-        } else if (BMI >= 30 && BMI < 40) {
-            BMIStat = "You are Obese! You should follow a strict diet!";
-            lblBmiInfo.setTextFill(Color.ORANGERED);
-            lblBmi.setTextFill(Color.ORANGERED);
-        } else if (BMI >= 40) {
-            BMIStat = "You are Extremely Obese! You should Consult a doctor!";
-            lblBmiInfo.setTextFill(Color.RED);
-            lblBmi.setTextFill(Color.RED);
-        }
-        lblBmiInfo.setText(BMIStat);
-        return BMI;
-
-    }
-
+    
     //Import user data from the user's table in database
     private int[] getGraphsData(String name, String column, LocalDate today) throws SQLException {
 
@@ -672,109 +675,10 @@ public class ControllerIWillSurvive {
 
     }
 
-    //Use the user's data to plot the graphs in the dashboard
-    private void plotGraphDashboard(int[] results, String column) {
-        LineChart<String, Number> chart = null;
-        switch (column) {
-            case "Steps":
-                chart = graphSteps;
-                break;
-            case "Calories_In":
-                chart = graphCalories;
-                break;
-            case "Heart_Rate":
-                chart = graphHR;
-                break;
-            case "Oxygen_Level":
-                chart = graphOL;
-                break;
-            default:
-                break;
-        }
-        XYChart.Series series1 = new XYChart.Series();
-        chart.getXAxis().setAnimated(false);
-        chart.getYAxis().setAnimated(true);
-        chart.setAnimated(true);
-        series1.getData().add(new XYChart.Data<>("0-6", results[0]));
-        series1.getData().add(new XYChart.Data<>("6-12", results[1]));
-        series1.getData().add(new XYChart.Data<>("12-18", results[2]));
-        series1.getData().add(new XYChart.Data<>("18-24", results[3]));
-        chart.getData().clear();
-        chart.getData().addAll(series1);
-    }
-
-    private Double[] getSleepData(String name, LocalDate today) throws SQLException {
-
-        Connection connection = connectionProvider.getConnection();
-
-        String dateToday = today.toString();
-
-        LocalDate yesterday = today.minusDays(1);
-        String yesterdayString = yesterday.toString();
-
-        Double[] results = new Double[4];
-        String query = "SELECT Sleep FROM " + name + " WHERE Date = \"" + yesterdayString + "\" AND time = \"18-24\"";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            ResultSet resultSet = stmt.executeQuery();
-
-            results[0] = resultSet.getDouble("Sleep");
-
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With getSleepData 1 Selecting: " + ex.getMessage());
-        }
-        String query2 = "SELECT Sleep FROM " + name + " WHERE Date = \"" + dateToday + "\" AND time = \"0-6\" OR Date = \"" + dateToday + "\" AND time = \"6-12\""
-                + " OR Date = \"" + dateToday + "\" AND time = \"12-18\"";
-        try {
-            PreparedStatement stmt2 = connection.prepareStatement(query2);
-
-            ResultSet resultSet = stmt2.executeQuery();
-            int i = 1;
-            Double retrieveColumn;
-            while (resultSet.next()) {
-                retrieveColumn = resultSet.getDouble("Sleep");
-                results[i] = retrieveColumn;
-                i += 1;
-            }
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With getSleepData 2 Selecting: " + ex.getMessage());
-        }
-        connection.close();
-
-        return results;
-    }
-
-    private void plotSleepGraphDashboard(Double[] results) {
-        Double sleepTime = 0.0;
-        for (Double result : results) {
-            sleepTime += result;
-        }
-
-        Double sleepPercentage = sleepTime / 24.0;
-        pieSleep.setProgress(sleepPercentage);
-    }
-
-    private void plotWaterGraphDashboard(int[] results) {
-        int waterAmount = 0;
-        for (int j = 0; j < results.length; j++) {
-            waterAmount += results[j];
-        }
-        if (waterAmount >= 10) {
-            barWater.setProgress(1);
-        } else {
-            Double waterPercentage = waterAmount / 10.0;
-            barWater.setProgress(waterPercentage);
-        }
-    }
-
     @FXML
     private void logOutClicked() throws IOException {
         user = null;
-        timeSlot = "";
-        MET = 0.0;
-        CPG = 0.0;
-        changeScenes("FXMLHealth.fxml", 525, 800);
+        changeScenes("SignIn.fxml", 525, 800);
     }
 
     @FXML
@@ -785,7 +689,7 @@ public class ControllerIWillSurvive {
     @FXML
     private void backClicked(ActionEvent event) {
         try {
-            changeScenes("FXMLHealth.fxml", 500, 800);
+            changeScenes("SignIn.fxml", 500, 800);
         } catch (IOException ex) {
             Logger.getLogger(ControllerIWillSurvive.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -863,1196 +767,16 @@ public class ControllerIWillSurvive {
             lblDeleteInfo.setText("User has been deleted succesfully!");
             lblDeleteInfo.setStyle("-fx-text-fill: #D05F12");//Orange
             user = null;
-            timeSlot = "";
-            MET = 0.0;
-            CPG = 0.0;
 
         } catch (SQLException ex) {
             System.out.println("An Error Has Occured while deleting the account table: " + ex.getMessage());
         }
-        changeScenes("FXMLHealth.fxml", 500, 800);
+        changeScenes("SignIn.fxml", 500, 800);
     }
 
     @FXML
     private void cancelDeleteClicked(ActionEvent event) throws IOException {
-        changeScenes("MainHealth.fxml", 950, 1500);
+        changeScenes("MainPage.fxml", 950, 1500);
     }
-
-    //More info page (others scenes are loaded inside this scene)
-    @FXML
-    private BorderPane mainPane;
-
-    @FXML
-    private ImageView imageLogoViewInfo;
-
-    @FXML
-    private Button btnSteps;
-
-    @FXML
-    private Button btnWater;
-
-    @FXML
-    private Button btnSleep;
-
-    @FXML
-    private Button btnCalories;
-
-    @FXML
-    private Button btnHeartRate;
-
-    @FXML
-    private Button btnOxygen;
-
-    @FXML
-    private Button btnBack;
-
-    @FXML
-    private Button btnActivity;
-
-    @FXML
-    private Button btnFood;
-
-    //To make the user go back to the dashboard after clicking on the logo on the top left
-    @FXML
-    void logoViewInfoClicked(MouseEvent event) throws IOException {
-        changeScenes("MainHealth.fxml", 950, 1500);
-    }
-
-    @FXML
-    void stepsBtnClicked(ActionEvent event) {
-        getPane("StepsFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View1 = object.getPane("StepsFXML");
-        mainPane.setCenter(View1);
-
-    }
-
-    @FXML
-    void sleepBtnClicked(ActionEvent event) {
-        getPane("SleepFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("SleepFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void waterBtnClicked(ActionEvent event) {
-        getPane("WaterFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("WaterFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void caloriesBtnClicked(ActionEvent event) {
-        getPane("CaloriesFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("CaloriesFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void heartRateBtnClicked(ActionEvent event) {
-        getPane("HeartRateFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("HeartRateFXML");
-        mainPane.setCenter(View2);
-
-    }
-
-    @FXML
-    void oxygenBtnClicked(ActionEvent event) {
-        getPane("OxygenFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("OxygenFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void activityBtnClicked(ActionEvent event) {
-        getPane("ActivityFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("ActivityFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void foodBtnClicked(ActionEvent event) {
-        getPane("FoodFXML");
-        ControllerIWillSurvive object = new ControllerIWillSurvive();
-        Pane View2 = object.getPane("FoodFXML");
-        mainPane.setCenter(View2);
-    }
-
-    @FXML
-    void backToDashboardBtnClicked(ActionEvent event) throws IOException {
-        changeScenes("MainHealth.fxml", 950, 1500);
-    }
-
-    private Pane view;
-
-    private Pane getPane(String fxmlFile) {
-        try {
-            URL fileUrl = GitIWillSurvive.class.getResource("/githealthapp/" + fxmlFile + ".fxml");
-            if (fileUrl == null) {
-                throw new java.io.FileNotFoundException("FXML file can not be found.");
-            }
-            view = new FXMLLoader().load(fileUrl);
-        } catch (IOException e) {
-            System.out.println("No Page " + fxmlFile + ". Please check file name.");
-        }
-        return view;
-    }
-
-    //
-    //
-    //Scenes in View Info
-    //
-    //
-    //
-    //Steps
-    //
-    private boolean checkEnteredDataInfo(String c, LocalDate choosenDate, TextField tf) {
-        if (c.equals("Steps") || c.equals("Sleep")) {
-            Double doubleX = 0.0;
-            try {
-                doubleX = Double.parseDouble(tf.getText());
-
-            } catch (NumberFormatException ex) {
-                System.out.println("An Error Has Occured With checking double values: " + ex.getMessage());
-                return false;
-            }
-        } else {
-            int intX = 0;
-            try {
-                intX = Integer.parseInt(tf.getText());
-
-            } catch (NumberFormatException ex) {
-                System.out.println("An Error Has Occured With checking integer values: " + ex.getMessage());
-                return false;
-            }
-        }
-
-        LocalDate today = LocalDate.now();
-        LocalDate oldDate = today.minusDays(8);
-        if (!((choosenDate.isBefore(today) && choosenDate.isAfter(oldDate)) || choosenDate.equals(today))) {
-            return false;
-        }
-        return true;
-    }
-
-    @FXML
-    private LineChart<String, Number> graphStepsInfo;
-
-    @FXML
-    private Button btnLoadSteps;
-
-    @FXML
-    private Button btnAddSteps;
-
-    @FXML
-    private DatePicker stepsDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodSteps;
-
-    @FXML
-    private MenuItem zeroToSixAmStepsTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmStepsTime;
-
-    @FXML
-    private MenuItem zeroToSixPmStepsTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmStepsTime;
-
-    @FXML
-    private TextField TBoxSteps;
-
-    @FXML
-    private Label lblStepsAdded;
-
-    @FXML
-    void getZeroToSixAmStepsTime(ActionEvent event) {
-        timeSlot = "0-6";
-        menuTimePeriodSteps.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmStepsTime(ActionEvent event) {
-        timeSlot = "6-12";
-        menuTimePeriodSteps.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmStepsTime(ActionEvent event) {
-        timeSlot = "12-18";
-        menuTimePeriodSteps.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmStepsTime(ActionEvent event) {
-        timeSlot = "18-24";
-        menuTimePeriodSteps.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadStepsBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Steps");
-    }
-
-//    @FXML
-//    void addStepsBtnClicked(ActionEvent event) throws SQLException {
-//        if (TBoxSteps.getText() != "" || stepsDatePicker.getValue() != null
-//                || timeSlot != "") {
-//            boolean isValid = checkEnteredDataInfo("Steps", stepsDatePicker.getValue(), TBoxSteps);
-//            if (isValid == true) {
-//                Double distance = Double.parseDouble(TBoxSteps.getText());
-//                String date = stepsDatePicker.getValue().toString();
-//                int time = (int) ((distance / 4.9) * 60);
-//                int steps = distanceToSteps(distance);
-//                MET = 3.5;
-//                int calBurned = caloriesBurnedActivity(time);
-//                MET = 0.0;
-//                String slot = timeSlot;
-//                addDataFromInfo("Steps", date, timeSlot, steps);
-//                addDataFromInfo("Calories_Out", date, slot, calBurned);
-//                lblStepsAdded.setText("Steps value has been updated Successfully!");
-//                lblStepsAdded.setTextFill(Color.GREEN);
-//                menuTimePeriodSteps.setText("Time");
-//                TBoxSteps.setText("");
-//            } else {
-//                lblStepsAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as a decimal");
-//                lblStepsAdded.setTextFill(Color.RED);
-//            }
-//        }
-//    }
-    //
-    //Sleep
-    //
-    @FXML
-    private LineChart<String, Number> graphSleepInfo;
-
-    @FXML
-    private Button btnSleepLoad;
-
-    @FXML
-    private Button btnAddSleep;
-
-    @FXML
-    private DatePicker sleepDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodSleep;
-
-    @FXML
-    private MenuItem zeroToSixAmSleepTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmSleepTime;
-
-    @FXML
-    private MenuItem zeroToSixPmSleepTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmSleepTime;
-
-    @FXML
-    private TextField TBoxSleep;
-
-    @FXML
-    private Label lblSleepAdded;
-
-    @FXML
-    void getZeroToSixAmSleepTime(ActionEvent event) {
-        timeSlot = "0-6";
-        menuTimePeriodSleep.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmSleepTime(ActionEvent event) {
-        timeSlot = "6-12";
-        menuTimePeriodSleep.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmSleepTime(ActionEvent event) {
-        timeSlot = "12-18";
-        menuTimePeriodSleep.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmSleepTime(ActionEvent event) {
-        timeSlot = "18-24";
-        menuTimePeriodSleep.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadSleepBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Sleep");
-    }
-
-    @FXML
-    void addSleepBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxSleep.getText() != "" || sleepDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("Sleep", sleepDatePicker.getValue(), TBoxSleep);
-            if (isValid == true) {
-                String date = sleepDatePicker.getValue().toString();
-                Double newSleep = Double.parseDouble(TBoxSleep.getText());
-                Double tot = addSleepFromInfo(date, timeSlot, newSleep);
-                if (tot <= 6.0) {
-                    lblSleepAdded.setText("Sleep hours has been updated Successfully!");
-                    lblSleepAdded.setTextFill(Color.GREEN);
-                } else {
-                    tot -= newSleep;
-                    lblSleepAdded.setText("Sleep hours Cannot be updated since you already\n"
-                            + "have slept for " + tot + " hours");
-                    lblSleepAdded.setTextFill(Color.RED);
-                }
-                menuTimePeriodSleep.setText("Time");
-                TBoxSleep.setText("");
-            } else {
-                lblSleepAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as a decimal");
-                lblSleepAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
-    //
-    //Water
-    //
-    @FXML
-    private LineChart<String, Number> graphWaterInfo;
-
-    @FXML
-    private Button btnLoadWater;
-
-    @FXML
-    private Button btnAddWater;
-
-    @FXML
-    private DatePicker waterDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodWater;
-
-    @FXML
-    private MenuItem zeroToSixAmWaterTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmWaterTime;
-
-    @FXML
-    private MenuItem zeroToSixPmWaterTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmWaterTime;
-
-    @FXML
-    private TextField TBoxWater;
-
-    @FXML
-    private Label lblWaterAdded;
-
-    @FXML
-    void getZeroToSixAmWaterTime(ActionEvent event
-    ) {
-        timeSlot = "0-6";
-        menuTimePeriodWater.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmWaterTime(ActionEvent event
-    ) {
-        timeSlot = "6-12";
-        menuTimePeriodWater.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmWaterTime(ActionEvent event
-    ) {
-        timeSlot = "12-18";
-        menuTimePeriodWater.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmWaterTime(ActionEvent event
-    ) {
-        timeSlot = "18-24";
-        menuTimePeriodWater.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadWaterBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Water");
-    }
-
-    @FXML
-    void addWaterBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxWater.getText() != "" || waterDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("Water", waterDatePicker.getValue(), TBoxWater);
-            if (isValid == true) {
-                String date = waterDatePicker.getValue().toString();
-                int newWater = Integer.parseInt(TBoxWater.getText());
-                addDataFromInfo("Water", date, timeSlot, newWater);
-                lblWaterAdded.setText("Water value has been updated Successfully!");
-                lblWaterAdded.setTextFill(Color.GREEN);
-                menuTimePeriodWater.setText("Time");
-                TBoxWater.setText("");
-            } else {
-                lblWaterAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                lblWaterAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
-    //
-    //Calories
-    //
-    @FXML
-    private LineChart<String, Number> graphCaloriesInfo;
-
-    @FXML
-    private Button btnCaloriesLoad;
-
-    @FXML
-    private Button btnAddCalories;
-    @FXML
-    private RadioButton rbCaloriesIn;
-    @FXML
-    private RadioButton rbCaloriesOut;
-
-    @FXML
-    private DatePicker calDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodCal;
-
-    @FXML
-    private MenuItem zeroToSixAmCalTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmCalTime;
-
-    @FXML
-    private MenuItem zeroToSixPmCalTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmCalTime;
-
-    @FXML
-    private TextField TBoxCal;
-
-    @FXML
-    private Label lblCalAdded;
-
-    @FXML
-    void getZeroToSixAmCalTime(ActionEvent event
-    ) {
-        timeSlot = "0-6";
-        menuTimePeriodCal.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmCalTime(ActionEvent event
-    ) {
-        timeSlot = "6-12";
-        menuTimePeriodCal.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmCalTime(ActionEvent event
-    ) {
-        timeSlot = "12-18";
-        menuTimePeriodCal.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmCalTime(ActionEvent event
-    ) {
-        timeSlot = "18-24";
-        menuTimePeriodCal.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadCaloriesBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Calories_In");
-        plotGraphInfo("Calories_Out");
-    }
-
-    @FXML
-    void addCaloriesBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxCal.getText() != "" || calDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("Calories", calDatePicker.getValue(), TBoxCal);
-            if (isValid == true) {
-                String date = calDatePicker.getValue().toString();
-                int newCal = Integer.parseInt(TBoxCal.getText());
-                if (rbCaloriesIn.isSelected()) {
-                    addDataFromInfo("Calories_In", date, timeSlot, newCal);
-                    lblCalAdded.setText("Calories intake value has been updated Successfully!");
-                    lblCalAdded.setTextFill(Color.GREEN);
-                    menuTimePeriodCal.setText("Time");
-                    TBoxCal.setText("");
-                } else if (rbCaloriesOut.isSelected()) {
-                    addDataFromInfo("Calories_Out", date, timeSlot, newCal);
-                    lblCalAdded.setText("Calories burned value has been updated Successfully!");
-                    lblCalAdded.setTextFill(Color.GREEN);
-                    menuTimePeriodCal.setText("Time");
-                    TBoxCal.setText("");
-                } else {
-                    lblCalAdded.setText("Please select if the entered value is an intake or burned calories");
-                    lblCalAdded.setTextFill(Color.RED);
-                }
-
-            } else {
-                lblCalAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                lblCalAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
-    //
-    //Heart Rate
-    //
-    @FXML
-    private LineChart<String, Number> graphHRInfo;
-
-    @FXML
-    private Button btnHeartRateLoad;
-
-    @FXML
-    private Button btnAddHeart;
-
-    @FXML
-    private DatePicker HRDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodHR;
-
-    @FXML
-    private MenuItem zeroToSixAmHRTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmHRTime;
-
-    @FXML
-    private MenuItem zeroToSixPmHRTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmHRTime;
-
-    @FXML
-    private TextField TBoxHR;
-
-    @FXML
-    private Label lblHRAdded;
-
-    @FXML
-    void getZeroToSixAmHRTime(ActionEvent event
-    ) {
-        timeSlot = "0-6";
-        menuTimePeriodHR.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmHRTime(ActionEvent event
-    ) {
-        timeSlot = "6-12";
-        menuTimePeriodHR.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmHRTime(ActionEvent event
-    ) {
-        timeSlot = "12-18";
-        menuTimePeriodHR.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmHRTime(ActionEvent event
-    ) {
-        timeSlot = "18-24";
-        menuTimePeriodHR.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadHeartRateBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Heart_Rate");
-    }
-
-    @FXML
-    void addHeartBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxHR.getText() != "" || HRDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("HR", HRDatePicker.getValue(), TBoxHR);
-            if (isValid == true) {
-                String date = HRDatePicker.getValue().toString();
-                int newHR = Integer.parseInt(TBoxHR.getText());
-                addDataFromInfo("Heart_Rate", date, timeSlot, newHR);
-                lblHRAdded.setText("Heart Rate value has been updated Successfully!");
-                lblHRAdded.setTextFill(Color.GREEN);
-                menuTimePeriodHR.setText("Time");
-                TBoxHR.setText("");
-            } else {
-                lblHRAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                lblHRAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
-    //
-    //Oxygen
-    //
-    @FXML
-    private LineChart<String, Number> graphOLInfo;
-
-    @FXML
-    private Button btnOxygenLoad;
-
-    @FXML
-    private Button btnAddOxygen;
-
-    @FXML
-    private DatePicker OLDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodOL;
-
-    @FXML
-    private MenuItem zeroToSixAmOLTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmOLTime;
-
-    @FXML
-    private MenuItem zeroToSixPmOLTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmOLTime;
-
-    @FXML
-    private TextField TBoxOL;
-
-    @FXML
-    private Label lblOLAdded;
-
-    @FXML
-    void getZeroToSixAmOLTime(ActionEvent event
-    ) {
-        timeSlot = "0-6";
-        menuTimePeriodOL.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmOLTime(ActionEvent event
-    ) {
-        timeSlot = "6-12";
-        menuTimePeriodOL.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmOLTime(ActionEvent event
-    ) {
-        timeSlot = "12-18";
-        menuTimePeriodOL.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmOLTime(ActionEvent event
-    ) {
-        timeSlot = "18-24";
-        menuTimePeriodOL.setText("18:00-23:59");
-    }
-
-    @FXML
-    void loadOxygenBtnClicked(ActionEvent event) throws SQLException {
-        plotGraphInfo("Oxygen_Level");
-    }
-
-    @FXML
-    void addOxygenBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxOL.getText() != "" || OLDatePicker.getValue() != null
-                || timeSlot != "") {
-            boolean isValid = checkEnteredDataInfo("OL", OLDatePicker.getValue(), TBoxOL);
-            if (isValid == true) {
-                String date = OLDatePicker.getValue().toString();
-                int newOL = Integer.parseInt(TBoxOL.getText());
-                addDataFromInfo("Oxygen_Level", date, timeSlot, newOL);
-                lblOLAdded.setText("Oxygen Level value has been updated Successfully!");
-                lblOLAdded.setTextFill(Color.GREEN);
-                menuTimePeriodOL.setText("Time");
-                TBoxOL.setText("");
-            } else {
-                lblOLAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                lblOLAdded.setTextFill(Color.RED);
-            }
-        }
-    }
-
-    private void plotGraphInfo(String column) throws SQLException {
-        LocalDate day = LocalDate.now();
-
-        if (column.equals("Sleep")) {
-            plotSleepGraphInfo(day);
-        } else {
-            int[] totResults = new int[8];
-            int[] dayResults = new int[4];
-            int results;
-            int addedDays;
-            for (int i = 0; i < totResults.length; i++) {
-                results = 0;
-                addedDays = 0;
-                dayResults = getGraphsData(user.getUserName(), column, day);
-                for (int j = 0; j < dayResults.length; j++) {
-                    if (dayResults[j] != 0) {
-                        results += dayResults[j];
-                        addedDays += 1;
-                    }
-                }
-                if (column.equals("Heart_Rate") || column.equals("Oxygen_Level")) {
-                    if (addedDays == 0) {
-                        addedDays = 1;
-                    }
-                    results /= addedDays;
-                }
-                totResults[i] = results;
-                day = day.minusDays(1);
-            }
-
-            LineChart<String, Number> chart = null;
-            switch (column) {
-                case "Steps":
-                    chart = graphStepsInfo;
-                    break;
-                case "Water":
-                    chart = graphWaterInfo;
-                    break;
-                case "Heart_Rate":
-                    chart = graphHRInfo;
-                    break;
-                case "Oxygen_Level":
-                    chart = graphOLInfo;
-                    break;
-                case "Calories_In":
-                    chart = graphCaloriesInfo;
-                    break;
-                case "Calories_Out":
-                    chart = graphCaloriesInfo;
-                    break;
-                default:
-                    break;
-            }
-            XYChart.Series series1 = new XYChart.Series();
-            if (column.equals("Calories_In")) {
-                series1.setName("Calories In");
-            }
-            if (column.equals("Calories_Out")) {
-                series1.setName("Calories Out");
-            }
-            chart.getXAxis().setAnimated(false);
-            chart.getYAxis().setAnimated(true);
-            chart.setAnimated(true);
-            day = day.plusDays(1);
-            for (int k = 7; k >= 0; k--) {
-                series1.getData().add(new XYChart.Data<>(day.toString(), totResults[k]));
-                day = day.plusDays(1);
-            }
-            if (!column.equals("Calories_Out")) {
-                chart.getData().clear();
-            }
-
-            chart.getData().addAll(series1);
-        }
-    }
-
-    private void plotSleepGraphInfo(LocalDate day) throws SQLException {
-        Double[] totResults = new Double[7];
-        Double[] dayResults = new Double[4];
-        Double results;
-        for (int i = 0; i < totResults.length; i++) {
-            results = 0.0;
-            dayResults = getSleepData(user.getUserName(), day);
-            for (Double dayResult : dayResults) {
-                results += dayResult;
-            }
-            totResults[i] = results;
-            day = day.minusDays(1);
-        }
-        XYChart.Series series1 = new XYChart.Series();
-        graphSleepInfo.getXAxis().setAnimated(false);
-        graphSleepInfo.getYAxis().setAnimated(true);
-        graphSleepInfo.setAnimated(true);
-        day = day.plusDays(1);
-        for (int k = 6; k >= 0; k--) {
-            series1.getData().add(new XYChart.Data<>(day.toString(), totResults[k]));
-            day = day.plusDays(1);
-        }
-        graphSleepInfo.getData().clear();
-        graphSleepInfo.getData().addAll(series1);
-
-    }
-
-//    private int distanceToSteps(Double distance) {
-//        int steps = 0;
-//        if (user.getGender().equals("male")) {
-//            steps = (int) ((int) (distance * 1000.0) / 0.762);
-//        } else {
-//            steps = (int) ((int) (distance * 1000.0) / 0.6604);
-//        }
-//        return steps;
-//    }
-    //
-    //Activity
-    //
-    @FXML
-    private DatePicker activityDatePicker;
-
-    @FXML
-    private MenuButton menuTimePeriodActivity;
-
-    @FXML
-    private MenuItem zeroToSixAmActTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmActTime;
-
-    @FXML
-    private MenuItem zeroToSixPmActTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmActTime;
-
-    @FXML
-    private Button btnAddActivity;
-
-    @FXML
-    private MenuButton menuActivity;
-
-    @FXML
-    private MenuItem runningActivity;
-
-    @FXML
-    private MenuItem soccerActivity;
-
-    @FXML
-    private MenuItem basketballActivity;
-
-    @FXML
-    private MenuItem walkingActivity;
-
-    @FXML
-    private TextField TBoxActivityTime;
-
-    @FXML
-    private Label lblActivityAdded;
-
-    @FXML
-    void addActivityBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxActivityTime.getText() != "" || activityDatePicker.getValue() != null || MET != 0.0
-                || timeSlot != "") {
-            if (!menuActivity.getText().equals("Activity type")) {
-                boolean isValid = checkEnteredDataInfo("Activity", activityDatePicker.getValue(), TBoxActivityTime);
-                if (isValid == true) {
-                    String date = activityDatePicker.getValue().toString();
-                    int time = Integer.parseInt(TBoxActivityTime.getText());
-                    int calBurned = caloriesBurnedActivity(time);
-                    addDataFromInfo("Calories_Out", date, timeSlot, calBurned);
-                    lblActivityAdded.setText("Activity has been added Successfully!");
-                    lblActivityAdded.setTextFill(Color.GREEN);
-                    MET = 0.0;
-                    menuTimePeriodActivity.setText("Time");
-                    TBoxActivityTime.setText("");
-                } else {
-                    lblActivityAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                    lblActivityAdded.setTextFill(Color.RED);
-                }
-            } else {
-                lblActivityAdded.setText("Please select an activity type");
-                lblActivityAdded.setTextFill(Color.RED);
-            }
-
-        }
-    }
-
-    @FXML
-    void getBasketballValue(ActionEvent event) {
-        MET = 8.0;
-        menuActivity.setText("Basketball");
-
-    }
-
-    @FXML
-    void getRunningValue(ActionEvent event) {
-        MET = 13.5;
-        menuActivity.setText("Running");
-    }
-
-    @FXML
-    void getSoccerValue(ActionEvent event) {
-        MET = 7.0;
-        menuActivity.setText("Soccer");
-    }
-
-    @FXML
-    void getWalkingValue(ActionEvent event) {
-        MET = 3.5;
-        menuActivity.setText("Walking");
-    }
-
-    @FXML
-    void getZeroToSixAmActTime(ActionEvent event) {
-        timeSlot = "0-6";
-        menuTimePeriodActivity.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmActTime(ActionEvent event) {
-        timeSlot = "6-12";
-        menuTimePeriodActivity.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmActTime(ActionEvent event) {
-        timeSlot = "12-18";
-        menuTimePeriodActivity.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmActTime(ActionEvent event) {
-        timeSlot = "18-24";
-        menuTimePeriodActivity.setText("18:00-23:59");
-    }
-
-    //
-    //Food
-    //
-    @FXML
-    private MenuButton menuTimePeriodFood;
-
-    @FXML
-    private MenuItem zeroToSixAmFoodTime;
-
-    @FXML
-    private MenuItem sixToTwelveAmFoodTime;
-
-    @FXML
-    private MenuItem zeroToSixPmFoodTime;
-
-    @FXML
-    private MenuItem sixToTwelvePmFoodTime;
-
-    @FXML
-    private MenuButton menuFood;
-
-    @FXML
-    private MenuItem appleFood;
-
-    @FXML
-    private MenuItem bananaFood;
-
-    @FXML
-    private MenuItem saladeFood;
-
-    @FXML
-    private MenuItem chickenFood;
-
-    @FXML
-    private MenuItem beefFood;
-
-    @FXML
-    private MenuItem fishFood;
-
-    @FXML
-    private TextField TBoxFood;
-
-    @FXML
-    private Label lblFoodAdded;
-
-    @FXML
-    private DatePicker foodDatePicker;
-
-    @FXML
-    private Button btnAddFood;
-
-    @FXML
-    void getAppleValue(ActionEvent event) {
-        CPG = 0.52;
-        menuFood.setText("Apple");
-    }
-
-    @FXML
-    void getBananaValue(ActionEvent event) {
-        CPG = 0.89;
-        menuFood.setText("Banana");
-    }
-
-    @FXML
-    void getBeefValue(ActionEvent event) {
-        CPG = 2.5;
-        menuFood.setText("Beef");
-    }
-
-    @FXML
-    void getChickenValue(ActionEvent event) {
-        CPG = 2.39;
-        menuFood.setText("Chicken");
-    }
-
-    @FXML
-    void getFishValue(ActionEvent event) {
-        CPG = 2.06;
-        menuFood.setText("Fish");
-    }
-
-    @FXML
-    void getSaladeValue(ActionEvent event) {
-        CPG = 0.64;
-        menuFood.setText("Home Salade");
-    }
-
-    @FXML
-    void getZeroToSixAmFoodTime(ActionEvent event) {
-        timeSlot = "0-6";
-        menuTimePeriodFood.setText("0:00-5:59");
-    }
-
-    @FXML
-    void getsixToTwelveAmFoodTime(ActionEvent event) {
-        timeSlot = "6-12";
-        menuTimePeriodFood.setText("6:00-11:59");
-    }
-
-    @FXML
-    void getzeroToSixPmFoodTime(ActionEvent event) {
-        timeSlot = "12-18";
-        menuTimePeriodFood.setText("12:00-17:59");
-    }
-
-    @FXML
-    void getsixToTwelvePmFoodTime(ActionEvent event) {
-        timeSlot = "18-24";
-        menuTimePeriodFood.setText("18:00-23:59");
-    }
-
-    @FXML
-    void addFoodBtnClicked(ActionEvent event) throws SQLException {
-        if (TBoxFood.getText() != "" || foodDatePicker.getValue() != null || CPG != 0.0
-                || timeSlot != "") {
-            if (!menuFood.getText().equals("Food type")) {
-                boolean isValid = checkEnteredDataInfo("Food", foodDatePicker.getValue(), TBoxFood);
-                if (isValid == true) {
-                    String date = foodDatePicker.getValue().toString();
-                    int grams = Integer.parseInt(TBoxFood.getText());
-                    int calEaten = (int) (grams * CPG);
-                    addDataFromInfo("Calories_In", date, timeSlot, calEaten);
-                    lblFoodAdded.setText("Food has been added Successfully!");
-                    lblFoodAdded.setTextFill(Color.GREEN);
-                    CPG = 0.0;
-                    menuTimePeriodFood.setText("Time");
-                    TBoxFood.setText("");
-                } else {
-                    lblFoodAdded.setText("Please select a date between today and from 8 days and make sure to enter the value as an integer");
-                    lblFoodAdded.setTextFill(Color.RED);
-                }
-            } else {
-                lblFoodAdded.setText("Please select the food type");
-                lblFoodAdded.setTextFill(Color.RED);
-            }
-
-        }
-    }
-
-    private int caloriesBurnedActivity(int time) {
-        int cal = (int) (time * ((MET * 3.5 * user.getNumFamily()) / 200));
-        return cal;
-    }
-
-    private void addDataFromInfo(String col, String date, String time, int difference) throws SQLException {
-        Connection connection = connectionProvider.getConnection();
-        int newResult = 0;
-        String query = "SELECT " + col + " FROM " + user.getUserName() + " WHERE Date = \"" + date + "\" AND time = \"" + time + "\"";
-
-        int oldResult = 0;
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            ResultSet resultSet = stmt.executeQuery();
-
-            oldResult = resultSet.getInt(col);
-
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With addDataFromInfo Selecting: " + ex.getMessage());
-        }
-
-        if (col.equals("Calories_In") || col.equals("Calories_Out") || col.equals("Steps") || col.equals("Water")) {
-            newResult = oldResult + difference;
-        } else {
-            if (oldResult != 0) {
-                newResult = (oldResult + difference) / 2;
-            } else {
-                newResult = difference;
-            }
-        }
-
-        String query2 = "UPDATE " + user.getUserName() + " SET " + col + " = " + newResult + " WHERE Date = \"" + date + "\" AND time = \"" + time + "\"";
-
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query2);
-
-            stmt.executeUpdate();
-
-            timeSlot = "";
-
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With addDataFromInfo Updating: " + ex.getMessage());
-        }
-        connection.close();
-    }
-
-    private Double addSleepFromInfo(String date, String time, Double difference) throws SQLException {
-        Connection connection = connectionProvider.getConnection();
-        Double newResult = 0.0;
-        String query = "SELECT Sleep FROM " + user.getUserName() + " WHERE Date = \"" + date + "\" AND time = \"" + time + "\"";
-
-        Double oldResult = 0.0;
-        try {
-            PreparedStatement stmt = connection.prepareStatement(query);
-
-            ResultSet resultSet = stmt.executeQuery();
-
-            oldResult = resultSet.getDouble("Sleep");
-
-        } catch (SQLException ex) {
-            System.out.println("An Error Has Occured With addSleepFromInfo Selecting: " + ex.getMessage());
-        }
-
-        connection.close();
-        newResult = oldResult + difference;
-
-        if (newResult > 6.0) {
-            timeSlot = "";
-            return newResult;
-        } else {
-            Connection connection2 = connectionProvider.getConnection();
-            String query2 = "UPDATE " + user.getUserName() + " SET Sleep = " + newResult + " WHERE Date = \"" + date + "\" AND time = \"" + time + "\"";
-
-            try {
-                PreparedStatement stmt = connection2.prepareStatement(query2);
-
-                stmt.executeUpdate();
-
-                timeSlot = "";
-
-            } catch (SQLException ex) {
-                System.out.println("An Error Has Occured With addSleepFromInfo Updating: " + ex.getMessage());
-            }
-            connection2.close();
-            return newResult;
-        }
-    }
+    
 }
