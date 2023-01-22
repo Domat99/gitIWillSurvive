@@ -6,37 +6,21 @@
 package gitiwillsurvive;
 
 import java.io.IOException;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.Period;
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import DBConnection.DBConnectionProvider;
+import java.util.Arrays;
 
 /**
  *
@@ -275,84 +259,96 @@ public class ControllerIWillSurvive {
     @FXML
     void updateBtnClicked1(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Phone", txtFieldPhone, lblPhoneBills);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked10(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Shopping", txtFieldShopping, lblShopping);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked11(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Leisure", txtFieldLeisure, lblLeisure);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked12(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Other", txtFieldOther, lblOther);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked2(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Rent", txtFieldRent, lblRent);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked3(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Internet", txtFieldInternet, lblInternet);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked4(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Electricity", txtFieldElectricity, lblElectricity);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked5(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Education", txtFieldEducation, lblEducation);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked6(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Groceries", txtFieldGroceries, lblGroceries);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked7(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Insurance", txtFieldInsurance, lblInsurance);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked8(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Transport", txtFieldTransportation, lblTransportation);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
     @FXML
     void updateBtnClicked9(ActionEvent event) throws SQLException {
         updateData(user.getUserName(), "Health", txtFieldHealth, lblHealth);
-        int totExp = getData();
+        int saving = loadData("Saving", lblSavingPercent);
+        int totExp = getData(saving);
         lblTotalExpences.setText(Integer.toString(totExp));
     }
 
@@ -624,15 +620,18 @@ public class ControllerIWillSurvive {
     @FXML
     void loadBtnClicked(ActionEvent event) throws IOException, SQLException {
 
+        lblStatus.setText("");
+        lblErrors.setText("");
+
         lblIncomeMonth.setText(Integer.toString(user.getMonthly_income()));
-        
-        loadData("Saving", lblSavingPercent);
-        getData();
+
+        int saving = loadData("Saving", lblSavingPercent);
+        getData(saving);
 
     }
-    
-    private int getData() throws SQLException{
-        
+
+    private int getData(int saving) throws SQLException {
+
         int ex2 = loadData("Phone", lblPhoneBills);
         int ex3 = loadData("Rent", lblRent);
         int ex4 = loadData("Internet", lblInternet);
@@ -648,8 +647,29 @@ public class ControllerIWillSurvive {
         
         int totExp = ex2 + ex3 + ex4 + ex5 + ex6 + ex7 + ex8 + ex9 + ex10 + ex11 + ex12 + ex13;
         lblTotalExpences.setText(Integer.toString(totExp));
-        
+        getStatus(totExp, saving);
         return totExp;
+    }
+
+    private void getStatus(int exp, int saving) {
+        int result = user.getMonthly_income() - ((100 - saving) / 100) - exp;
+        if (exp > user.getMonthly_income()) {
+            lblStatus.setText("Your monthly income will not cover your expences. Please reduce the unnecessary expences.");
+            lblStatus.setStyle("-fx-text-fill: #FF0000");
+            
+        } else {
+            
+            if ((user.getMonthly_income() * saving / 100) < (user.getMonthly_income() - exp)) {
+                lblStatus.setText("We suggest looking into your expences to keep up with your saving goal");
+                lblStatus.setStyle("-fx-text-fill: #D05F12");
+            }
+            
+            else if(result > 0){
+                lblStatus.setText("You are doing great!");
+                lblStatus.setStyle("-fx-text-fill: #00B050");
+            }
+
+        }
     }
 
     private int loadData(String expence, Label lbl) throws SQLException {
@@ -658,29 +678,31 @@ public class ControllerIWillSurvive {
         String query;
         if (expence.equals("Income")) {
             query = "SELECT Income FROM Users WHERE UserName = \"" + user.getUserName() + "\"";
-        }else{
+        } else {
             query = "SELECT " + expence + " FROM " + user.getUserName();
         }
-        
+
         int data = 0;
-                
+
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
 
             ResultSet resultSet = stmt.executeQuery();
-            
+
             data = resultSet.getInt(expence);
 
         } catch (SQLException ex) {
             System.out.println("An Error Has Occured With loading data: " + ex.getMessage());
         }
-        
+
         lbl.setText(Integer.toString(data));
         connection.close();
         return data;
     }
 
     void updateData(String name, String expense, TextField field, Label lbl) throws SQLException {
+        lblStatus.setText("");
+        lblErrors.setText("");
         boolean isInteger = true;
         int expenseTest = 0;
         try {
