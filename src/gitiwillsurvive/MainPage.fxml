@@ -70,7 +70,7 @@
                         <Font name="System Bold" size="21.0" />
                      </font>
                   </Button>
-                  <Label fx:id="lblErrors" layoutX="27.0" layoutY="1138.0" prefHeight="34.0" prefWidth="1114.0" textAlignment="CENTER">
+                  <Label fx:id="lblErrors" layoutX="27.0" layoutY="289.0" prefHeight="34.0" prefWidth="1114.0" textAlignment="CENTER">
                      <font>
                         <Font name="Bell MT" size="18.0" />
                      </font>
@@ -116,7 +116,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldPhone" layoutX="30.0" layoutY="385.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldPhone" layoutX="30.0" layoutY="385.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldRent" layoutX="638.0" layoutY="385.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldRent" layoutX="638.0" layoutY="385.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -171,7 +171,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldInternet" layoutX="30.0" layoutY="524.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldInternet" layoutX="30.0" layoutY="524.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -196,7 +196,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldElectricity" layoutX="638.0" layoutY="524.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldElectricity" layoutX="638.0" layoutY="524.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -221,7 +221,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldEducation" layoutX="30.0" layoutY="665.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldEducation" layoutX="30.0" layoutY="665.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -246,7 +246,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldGroceries" layoutX="638.0" layoutY="665.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldGroceries" layoutX="638.0" layoutY="665.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -271,7 +271,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldInsurance" layoutX="30.0" layoutY="804.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldInsurance" layoutX="30.0" layoutY="804.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -296,7 +296,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldTransportation" layoutX="638.0" layoutY="804.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldTransportation" layoutX="638.0" layoutY="804.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -321,7 +321,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldHealth" layoutX="30.0" layoutY="941.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldHealth" layoutX="30.0" layoutY="941.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -346,7 +346,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldShopping" layoutX="638.0" layoutY="941.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldShopping" layoutX="638.0" layoutY="941.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -371,7 +371,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldLeisure" layoutX="30.0" layoutY="1080.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldLeisure" layoutX="30.0" layoutY="1080.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -396,7 +396,7 @@
                         <Font name="Bell MT" size="35.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtFieldOther" layoutX="638.0" layoutY="1080.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Income" style="-fx-background-radius: 12;">
+                  <TextField fx:id="txtFieldOther" layoutX="638.0" layoutY="1080.0" prefHeight="50.0" prefWidth="290.0" promptText="Enter New Monthly Expence" style="-fx-background-radius: 12;">
                      <font>
                         <Font size="21.0" />
                      </font>
